@@ -23,6 +23,8 @@ export const backgroundStyle = `
   }
 `;
 
+export const github = "https://github.com/korneXD/jpgify"
+
 export const featureItems = [
   {
     emoji: "🖼️",

@@ -2,12 +2,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
+import { github } from "@/utils/constants";
 
 export default function Header() {
   const nav = [
     { name: "about", path: "/about" },
     { name: "privacy policy", path: "/privacy-policy" },
-    { name: "buy me a coffee", path: "/" },
+    { name: "buy me a coffee", path: "/buymeacoffee" },
   ];
   return (
     <header className="absolute top-0 left-0 flex w-full items-center justify-center">
@@ -36,7 +37,7 @@ export default function Header() {
             </motion.div>
           ))}
         </div>
-        <Link href="/" className="flex justify-end items-center flex-1">
+        <Link href={github} className="flex justify-end items-center flex-1">
           <div className="flex justify-center items-center bg-gradient-to-tr gap-2 from-blue via-via to-to z-10 px-2 py-2 rounded-xl">
             <p className="text-gray-300 font-semibold">Github Repo</p>
             <FaGithub className="size-5 text-gray-300" />

@@ -66,7 +66,7 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`antialiased bg-blue`}>
+      <body className={`antialiased bg-to`}>
         <Toaster
           toastOptions={{
             unstyled: true,

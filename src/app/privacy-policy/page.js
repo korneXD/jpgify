@@ -1,8 +1,9 @@
 "use client";
 
 import Header from "@/components/ui/header";
-import { sections } from "@/utils/constants";
+import { github, sections } from "@/utils/constants";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 
 export default function PrivacyPolicy() {
@@ -75,10 +76,10 @@ export default function PrivacyPolicy() {
           <h3 className="mb-4 text-2xl font-bold text-gray-200">
             🚨 Found a bug or have a suggestion?
           </h3>
-          <div className="flex flex-row items-center justify-center gap-2">
+          <Link href={github} className="flex flex-row items-center justify-center gap-2">
             <p className="text-lg text-gray-300">Let us know on GitHub!</p>
             <FaGithub className="size-5 text-gray-300" />
-          </div>
+          </Link>
         </motion.div>
       </section>
     </main>
