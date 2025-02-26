@@ -1,6 +1,7 @@
 import { description, title } from "@/utils/constants";
 import "./globals.css";
 import { Toaster } from "sonner";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata = {
   title: {
@@ -80,6 +81,7 @@ export default function RootLayout({ children }) {
         />
         {children}
       </body>
+      <GoogleAnalytics gaId="G-XKSY9JPNND" />
     </html>
   );
 }
