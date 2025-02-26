@@ -6,9 +6,10 @@ import { github } from "@/utils/constants";
 
 export default function Header() {
   const nav = [
+    { name: "home", path: "/" },
     { name: "about", path: "/about" },
     { name: "privacy policy", path: "/privacy-policy" },
-    { name: "buy me a coffee", path: "/buymeacoffee" },
+
   ];
   return (
     <header className="absolute top-0 left-0 flex w-full items-center justify-center">
