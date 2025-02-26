@@ -106,7 +106,7 @@ export const sections = [
   {
     title: "8. Contact Us",
     content:
-      "If you have any questions or concerns about this Privacy Policy or the data we collect, please contact us at souhailbenlhachemi1999@gmail.com.",
+      "If you have any questions or concerns about this Privacy Policy or the data we collect, please contact us at kornexd541@gmail.com.",
   },
   {
     title: "Agreement",

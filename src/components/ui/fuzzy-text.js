@@ -98,7 +98,7 @@ const FuzzyText = ({
           -fuzzRange,
           -fuzzRange,
           offscreenWidth + 2 * fuzzRange,
-          tightHeight + 2 * fuzzRange
+          tightHeight + 2 * fuzzRange,
         );
         const intensity = isHovering ? hoverIntensity : baseIntensity;
         for (let j = 0; j < tightHeight; j++) {
@@ -112,7 +112,7 @@ const FuzzyText = ({
             dx,
             j,
             offscreenWidth,
-            1
+            1,
           );
         }
         animationFrameId = window.requestAnimationFrame(run);
