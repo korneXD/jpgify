@@ -4,6 +4,7 @@ import ImageConverter from "@/components/ImageConverter";
 import Header from "@/components/ui/header";
 import { backgroundStyle } from "@/utils/constants";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Home() {
   return (
