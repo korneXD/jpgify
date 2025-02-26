@@ -4,6 +4,7 @@ import Header from "@/components/ui/header";
 import { backgroundStyle, featureItems } from "@/utils/constants";
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 export default function About() {
   const backgroundStyle = `
@@ -40,7 +41,7 @@ export default function About() {
       <Header />
       <div className="bg-pattern"></div>
       <section className="flex max-w-4xl flex-col items-center justify-center p-4">
-        <div className="flex flex-1 flex-col items-center justify-center pt-12 text-center">
+        <div className="flex flex-1 flex-col items-center justify-center pt-24 text-center">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,7 +73,7 @@ export default function About() {
               </h3>
               <div className="flex flex-row items-center justify-center gap-2">
                 <p className="text-lg text-gray-300">Let us know on GitHub!</p>
-                <Github className="size-5 text-gray-300" />
+                <FaGithub className="size-5 text-gray-300" />
               </div>
             </div>
             <div>

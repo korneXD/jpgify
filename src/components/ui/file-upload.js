@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { IconUpload } from "@tabler/icons-react";
 import { useDropzone } from "react-dropzone";
+import { toast } from "sonner";
 
 const mainVariant = {
   initial: {
@@ -41,28 +42,19 @@ export const FileUpload = ({ onChange, files, setFiles }) => {
   const fileInputRef = useRef(null);
 
   const handleFileChange = (newFiles) => {
-    // Ellenőrizd a fájlok formátumát
     const validFiles = newFiles.filter((file) => {
       const fileExtension = file.name.split(".").pop().toLowerCase();
       return acceptableFormats.includes(fileExtension);
     });
 
-    // Ha vannak érvénytelen fájlok, jelenítsünk alertet
     if (validFiles.length < newFiles.length) {
-      const invalidFiles = newFiles.filter((file) => {
-        const fileExtension = file.name.split(".").pop().toLowerCase();
-        return !acceptableFormats.includes(fileExtension);
-      });
-      alert(
-        `A következő fájlok formátuma nem megfelelő: ${invalidFiles.map((file) => file.name).join(", ")}`,
-      );
+
+      toast.warning("Invalid file format!")
     }
 
-    // Csak az érvényes fájlokat add hozzá az állapothoz
     setFiles((prevFiles) => [...prevFiles, ...validFiles]);
-    // Call the onChange callback (if provided) with the valid files
     onChange && onChange(validFiles);
-    // Reset the input element to allow subsequent uploads
+
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
@@ -116,7 +108,7 @@ export const FileUpload = ({ onChange, files, setFiles }) => {
                   damping: 20,
                 }}
                 className={cn(
-                  "bg-blue relative z-40 mx-auto mt-4 flex h-24 w-full max-w-[6rem] items-center justify-center rounded-md p-1 ring-1 ring-white/20 group-hover/file:shadow-2xl",
+                  "bg-gradient-to-b from-blue via-via to-to relative z-40 mx-auto mt-4 flex h-24 w-full max-w-[6rem] items-center justify-center rounded-md p-1 ring-1 ring-white/20 group-hover/file:shadow-2xl",
                   "shadow-[0px_10px_50px_rgba(0,0,0,0.1)]",
                 )}
               >
@@ -124,13 +116,13 @@ export const FileUpload = ({ onChange, files, setFiles }) => {
                   <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="flex flex-col items-center text-neutral-600"
+                    className="flex flex-col items-center text-neutral-300"
                   >
                     Drop it
-                    <IconUpload className="h-4 w-4 text-neutral-600 dark:text-neutral-400" />
+                    <IconUpload className="size-5 text-neutral-300 " />
                   </motion.p>
                 ) : (
-                  <IconUpload className="h-4 w-4 text-neutral-600 dark:text-neutral-300" />
+                  <IconUpload className="size-5 text-neutral-300 " />
                 )}
               </motion.div>
             )}

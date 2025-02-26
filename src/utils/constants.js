@@ -28,13 +28,13 @@ export const featureItems = [
     emoji: "🖼️",
     title: "Master Your Images",
     description:
-      "Unleash your creativity with JPGify! Whether you need to resize, crop, rotate, or convert image formats, we've got you covered. From JPEG to PNG, WebP, GIF, and beyond, ensure your visuals always look their best.",
+      "Unleash your creativity with JPGify! If you need to convert image formats, we've got you covered. From JPEG to PNG, WebP, ICO and beyond, ensure your visuals always look their best.",
   },
   {
     emoji: "🚀",
     title: "Fast and Unlimited Usage",
     description:
-      "Say goodbye to hidden fees and limitations! JPGify is completely free, allowing you to process as many images as you need—without any download or usage limits.",
+      "Say goodbye to hidden fees and limitations! JPGify is completely free, allowing you to process as many images as you need—without any download or usage limits. (maximum 10 files for better performance)",
   },
   {
     emoji: "📱",

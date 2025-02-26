@@ -36,7 +36,7 @@ export default function Home() {
             transition={{ delay: 0.3, duration: 1 }}
           >
             <p className="mb-8 text-lg text-gray-300 sm:text-xl">
-              Your go-to image conversion hub! Convert, resize, and optimize
+              Your go-to image conversion hub! Convert
               images effortlessly across 9+ formats. Fast, free, and
               user-friendly. Perfect for pros and beginners alike.
             </p>

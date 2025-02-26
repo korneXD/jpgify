@@ -1,20 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { db, doc, setDoc, increment, getDoc } from "../utils/database";
+import { db, doc, getDoc } from "../utils/database";
 import { FileUpload } from "./ui/file-upload";
 import { toast } from "sonner";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
-import imageConversion from "image-conversion";
-import dynamic from "next/dynamic";
 import { UseConvertImage } from "./convertImage";
-import { UseOptimizeImage } from "./optimizeImage";
-import { UseResizeImage } from "./resizeImage";
 import CountUp from "./ui/countup";
-
-const heic2any = dynamic(() => import("heic2any"), { ssr: false });
 
 const acceptableFormats = [
   "jpg",
@@ -32,10 +26,6 @@ export default function ImageConverter() {
   const [files, setFiles] = useState([]);
   const [bulkFormat, setBulkFormat] = useState("jpeg");
   const [totalSizeMB, setTotalSizeMB] = useState(0);
-
-  const [optimizeEnabled, setOptimizeEnabled] = useState(false);
-
-  const [activeTab, setActiveTab] = useState("convert");
   const [loading, setLoading] = useState(false);
   const [optimizedImages, setOptimizedAll] = useState(false);
   const [convertedImages, setAllConverted] = useState(false);
@@ -72,43 +62,6 @@ export default function ImageConverter() {
     setFiles(formattedFiles);
   };
 
-  const getImageDimensions = (file) => {
-    return new Promise((resolve) => {
-      const img = new Image();
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        img.src = e.target.result;
-        img.onload = () => {
-          resolve({ width: img.width, height: img.height });
-        };
-      };
-      reader.readAsDataURL(file);
-    });
-  };
-
-  useEffect(() => {
-    if (activeTab === "resize") {
-      files.forEach(async (file, index) => {
-        const dimensions = await getImageDimensions(file.file);
-        const updatedFiles = [...files];
-        updatedFiles[index].originalWidth = dimensions.width;
-        updatedFiles[index].originalHeight = dimensions.height;
-        setFiles(updatedFiles);
-      });
-    }
-  }, [activeTab, files]);
-
-  useEffect(() => {
-    if (optimizedImages) {
-      toast.success("Optimized all images!");
-    } else if (convertedImages) {
-      toast.success("Converted all images!");
-    } else if (resizedImages) {
-      toast.success("Resized all images!");
-    }
-  }, [optimizedImages, convertedImages, resizedImages]);
-
   const handleDownloadAll = () => {
     const warning = files.every((file) => file.convertedImage);
     if (warning == false) {
@@ -122,8 +75,7 @@ export default function ImageConverter() {
           .then((res) => res.blob())
           .then((blob) => {
             zip.file(
-              `${file.name.split(".").slice(0, -1).join(".")}modify.${
-                file.convertedFormat
+              `${file.name.split(".").slice(0, -1).join(".")}modify.${file.convertedFormat
               }`,
               blob,
             );
@@ -144,54 +96,13 @@ export default function ImageConverter() {
       transition={{ delay: 0.5, duration: 1 }}
       className="z-20 flex w-fit flex-col items-center justify-center space-y-4"
     >
-      <div className="flex w-full max-w-[380px] items-center justify-around text-lg font-semibold text-gray-300">
-        <button
-          className={`cursor-pointer ${
-            activeTab === "convert"
-              ? "underline decoration-white underline-offset-3"
-              : ""
-          }`}
-          onClick={() => {
-            setActiveTab("convert");
-            setFiles([]);
-          }}
-        >
-          <h2>Convert</h2>
-        </button>
-        <button
-          className={`cursor-pointer ${
-            activeTab === "resize"
-              ? "underline decoration-white underline-offset-3"
-              : ""
-          }`}
-          onClick={() => {
-            setActiveTab("resize");
-            setFiles([]);
-          }}
-        >
-          <h2>Resize</h2>
-        </button>
-        <button
-          className={`cursor-pointer ${
-            activeTab === "optimize"
-              ? "underline decoration-white underline-offset-3"
-              : ""
-          }`}
-          onClick={() => {
-            setActiveTab("optimize");
-            setFiles([]);
-          }}
-        >
-          <h2>Optimize</h2>
-        </button>
-      </div>
       <motion.div
         layout
         transition={{ layout: { duration: 0.2, ease: "easeInOut" } }}
         className="flex flex-col items-center justify-center overflow-hidden rounded-xl bg-white/5 p-4 ring-1 ring-white/20"
       >
         <h1 className="mb-4 text-2xl font-bold text-gray-200">
-          <span className="capitalize">{activeTab}</span> your images with
+          <span className="capitalize">Convert</span> your images with
           JPGify
         </h1>
 
@@ -203,34 +114,21 @@ export default function ImageConverter() {
         />
 
         <motion.div
-          key={activeTab}
+
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, transition: 1 }}
           className="w-full"
         >
-          {activeTab === "convert" && (
-            <UseConvertImage
-              files={files}
-              setFiles={setFiles}
-              setTotalSizeMB={setTotalSizeMB}
-              bulkFormat={bulkFormat}
-              setBulkFormat={setBulkFormat}
-              acceptableFormats={acceptableFormats}
-              handleDownloadAll={handleDownloadAll}
-            />
-          )}
-          {activeTab === "resize" && (
-            <UseResizeImage
-              files={files}
-              setFiles={setFiles}
-              setTotalSizeMB={setTotalSizeMB}
-              bulkFormat={bulkFormat}
-              setBulkFormat={setBulkFormat}
-              acceptableFormats={acceptableFormats}
-              handleDownloadAll={handleDownloadAll}
-            />
-          )}
+          <UseConvertImage
+            files={files}
+            setFiles={setFiles}
+            setTotalSizeMB={setTotalSizeMB}
+            bulkFormat={bulkFormat}
+            setBulkFormat={setBulkFormat}
+            acceptableFormats={acceptableFormats}
+            handleDownloadAll={handleDownloadAll}
+          />
         </motion.div>
 
         {files.length > 0 && (

@@ -27,7 +27,7 @@ export const UseConvertImage = ({
     async (index) => {
       const fileData = files[index];
       const { file, format, convertedFormat } = fileData;
-
+      setLoading(true)
       try {
         let convertedBlob;
 
@@ -116,7 +116,7 @@ export const UseConvertImage = ({
             className="p-2 ring-1 font-semibold ring-white/20 bg-white/10 rounded text-gray-300 cursor-pointer outline-none"
           >
             {acceptableFormats.map((format) => (
-              <option key={format} value={format}>
+              <option key={format} value={format} className="bg-black text-cyan-500">
                 {format.toUpperCase()}
               </option>
             ))}
@@ -142,7 +142,7 @@ export const UseConvertImage = ({
             >
               <div className="flex justify-between items-center space-x-4 max-w-md">
                 <div>
-                  <p className="font-semibold text-white truncate max-w-[200px]">
+                  <p className="font-semibold text-white truncate max-w-[120px]">
                     {file.name}
                   </p>
                   <p className="text-sm text-gray-300">
@@ -181,7 +181,7 @@ export const UseConvertImage = ({
                       .slice(0, -1)
                       .join(".")}modify.${file.convertedFormat}`}
                     className={cn(
-                      "mt-2 inline-block bg-green-700 text-white px-4 py-2 rounded-xl ring-1 ring-white/5 font-semibold",
+                      "mt-2 inline-block bg-green-700 cursor-pointer text-white px-4 py-2 rounded-xl ring-1 ring-white/5 font-semibold",
                       {
                         "bg-green-900": !file.convertedImage,
                       }
@@ -192,7 +192,11 @@ export const UseConvertImage = ({
                         : download
                     }
                   >
-                    Download
+                    {loading ? (
+                      <LoaderCircle className="animate-spin text-green-400" />
+                    ) : (
+                      "Download All as ZIP"
+                    )}
                   </a>
                 </div>
               )}
