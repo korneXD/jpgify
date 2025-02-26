@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# JPGify
 
-## Getting Started
+🚀 **Unleash the Power of Image Conversion** 🚀
 
-First, run the development server:
+JPGify is a free, web-based image conversion tool that empowers you to transform your images across various formats quickly and securely. Whether you need to convert images to JPEG, PNG, WebP, or more, JPGify is here to make your workflow smooth and efficient.
+
+---
+
+## 🌟 **Features**
+
+- 🖼️ **Master Your Images**
+  Unleash your creativity with JPGify! If you need to convert image formats, we've got you covered. From JPEG to PNG, WebP, and beyond, ensure your visuals always look their best.
+
+- 🚀 **Fast and Unlimited Usage**
+  Say goodbye to hidden fees and limitations! JPGify is completely free, allowing you to process as many images as you need—without any download or usage limits. _(Maximum 10 files for better performance)_
+
+- 📱 **Accessible Anytime, Anywhere**
+  JPGify works seamlessly on any device. Whether you're on a computer, tablet, or smartphone, our web-based platform is ready whenever you need it.
+
+- 🔒 **Secure and Private**
+  Your image security is our top priority. We don't store your files—every process is fully secure and private, giving you peace of mind.
+
+- 💡 **Simple and Intuitive Interface**
+  JPGify's interface is designed with simplicity in mind. You don't need any technical skills—just a few clicks, and your images are ready to go!
+
+- ♻️ **Optimize for the Best Quality**
+  Preparing images for the web? No problem! Reduce file sizes while maintaining quality to speed up your website and save storage space.
+
+---
+
+## 📦 **How to Use**
+
+1. **Upload Your Images:** Drag and drop or select files manually.
+2. **Choose Your Desired Format:** Select the output format you need (JPEG, PNG, WebP, etc.).
+3. **Convert:** Hit the convert button and let JPGify work its magic!
+4. **Download:** Save your freshly converted images instantly.
+
+---
+
+## 🔧 **Installation (For Developers)**
+
+If you're looking to integrate JPGify's functionality into your own project, follow these steps:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repository
+git clone https://github.com/kornexd/jpgify.git
+
+# Navigate to the project directory
+cd jpgify
+
+# Install dependencies
+npm install
+
+# Run locally
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🤝 **Contributing**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+We welcome contributions! If you'd like to improve JPGify, please fork the repository and submit a pull request. Make sure your changes are well-documented.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📄 **License**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+JPGify is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📧 **Contact**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+For support or inquiries, please email us at kornexd541@gmail.com.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🌱 **Future plans**
+
+- Resize
+- Optimize
+- New formats
+- Video and sound converting
+
+---
+
+Thank you for using **JPGify**! We hope it makes your image conversion tasks a breeze. 😊
