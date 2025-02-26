@@ -66,6 +66,9 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="google-site-verification" content="2pci2uZwLj8bLPTvBSMF9_CQZ8qn2LCEv9SJGXuEYTI" />
+      </head>
       <body className={`antialiased bg-to`}>
         <Toaster
           toastOptions={{
