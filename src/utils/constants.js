@@ -1,6 +1,6 @@
 export const title = "JPGify";
 
-export const description = "...";
+export const description = "Your go-to image conversion hub! Convert images effortlessly across 9 + formats.Fast, free, and user - friendly.Perfect for pros and beginners alike.";
 
 export const backgroundStyle = `
   .bg-pattern {

@@ -5,6 +5,11 @@ import Header from "@/components/ui/header";
 import { backgroundStyle } from "@/utils/constants";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Not Found | JPGify",
+  description: "The searched page does not exist.",
+};
+
 export default function NotFound() {
   return (
     <main
